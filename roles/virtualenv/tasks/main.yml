@@ -1,0 +1,11 @@
+---
+- name: create .virtualenv direcotyr
+  file:
+    path: ~/.virtualenvs
+    state: directory
+
+- name: create virualenv
+  command:
+    cmd: python3.7 -m venv ans
+    chdir:  ~/.virtualenvs
+    creates: ~/.virtualenvs/ans

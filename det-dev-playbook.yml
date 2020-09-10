@@ -1,0 +1,10 @@
+---
+- name: Setup determined development dependencies
+  hosts: all
+  gather_facts: yes
+  roles:
+    - { role: apt }
+    - { role: virtualenv }
+    - { role: repo }
+    # - { role: fubarhouse.golang, become: yes, become_method: sudo }
+    # - { role: build }

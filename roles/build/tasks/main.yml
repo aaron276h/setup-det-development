@@ -1,0 +1,16 @@
+---
+- name: Build Dependencies
+  shell:
+    chdir: "{{ determined_path }}"
+    cmd: |
+      .  ~/.virtualenvs/ans/bin/activate &&
+      make get-deps
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/go"
+
+- name: Build System
+  shell:
+    chdir: "{{ determined_path }}"
+    cmd: |
+      .  ~/.virtualenvs/ans/bin/activate &&
+      make build -j8

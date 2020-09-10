@@ -1,0 +1,31 @@
+---
+- name: add apt repositories
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    update_cache: yes
+  become: yes
+  become_method: sudo
+
+- name: install apt dependencies
+  apt:
+    name: "{{ item }}"
+    install_recommends: no
+    state: present
+  with_items:
+    - build-essential
+    - libkrb5-dev
+    - nodejs
+    - python3.7
+    - python3.7-venv
+    - python3.7-dev
+    - curl
+    - software-properties-common
+    - nodejs
+    - protobuf-compiler
+    - default-jre
+    - git-all
+    - python3-pip
+    - python3-setuptools
+    # - python3-venv
+  become: yes
+  become_method: sudo

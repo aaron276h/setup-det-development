@@ -1,0 +1,5 @@
+---
+- name: clone repostiory
+  git:
+    repo: https://github.com/determined-ai/determined
+    dest: "{{ determined_path }}"
